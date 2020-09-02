@@ -1,0 +1,142 @@
+main {
+	grid-column: 2/3;
+	padding: 3rem;
+
+	background: hsl(140 50% 50%);
+} 
+
+.message-backdrop {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.message-backdrop > svg {
+	height: 300px;
+	width: 300px;
+}
+
+.message-backdrop__text {
+	margin: 0;
+
+	color: #fff;
+	font-size: 6rem;
+	text-align: center;
+}
+
+.message-board {
+	align-self: flex-start;
+	display: flex;
+	flex-direction: column;
+	height: calc(100vh - 17rem);
+
+	color: #fff;
+	overflow-y: scroll;
+}
+
+.message-item {
+	align-self: flex-start;
+	margin-bottom: 2rem;
+	padding: 2rem;
+	max-width: 70%;
+	width: auto;
+
+	background: hsl(140 50% 40%);
+	border-radius: 5px;
+}
+
+.message-item.you {
+	align-self: flex-end;
+}
+
+.message-info {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 1rem;
+}
+
+.message-info > div {
+	align-items: center;
+	display: flex;
+}
+
+.message-item.you .message-info > div {
+	order: 2;
+}
+
+.message-avatar {
+	display: inline-block;
+	height: 30px;
+	margin-right: 1rem;
+	width: 30px;
+
+	border: 2px solid #fff;
+	border-radius: 50%;
+}
+
+.message-item.you .message-avatar {
+	order: 2;
+}
+
+.message-nickname {
+	margin-right: 1rem;
+
+	color: hsl(140 50% 10%);
+	font-size: 1.8rem;
+	font-weight: 500;
+}
+
+.message-date {
+	color: hsl(140 50% 10%);
+	font-weight: 500;
+}
+
+.message-item.you .message-date {
+	margin-right: 1rem;
+}
+
+.message-text {
+	font-size: 1.8rem;
+}
+
+.message-form {
+	align-items: center;
+	display: flex;
+	padding: 1rem 0 0;
+}
+
+.message-form > svg {
+	flex: 10;
+	height: 3rem;
+	width: 3rem;
+
+	cursor: pointer;
+	transition: fill .3s;
+}
+.message-form > svg:hover {
+	fill: #fff;
+}
+
+.message-input {
+	flex: 85;
+	height: 4rem;
+	padding: 0 2rem;
+
+	border: 1px solid hsl(140 50% 40%);
+	border-radius: 10px;
+	font-size: 1.8rem;
+}
+
+.btn-send {
+	flex: 3rem;
+	height: 3rem;
+	margin-left: 1rem;
+	max-width: 3rem;
+
+	background: hsl(0 0% 95%);
+	border: none;
+	clip-path: polygon(0 0, 100% 50%, 0 100%);
+	cursor: pointer;
+}

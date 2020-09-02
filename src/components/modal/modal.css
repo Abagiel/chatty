@@ -1,0 +1,90 @@
+.modal {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	z-index: 100;
+
+	height: auto;
+	padding: 3rem;
+	width: 40rem;
+	transform: translate(-50%, -50%);
+
+	background: #fff;
+	border-radius: 10px;
+}
+
+.modal-close {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+
+	cursor: pointer;
+	transition: fill .3s;
+}
+.modal-close:hover {
+	fill: hsl(0 50% 50%);
+}
+
+.modal-close > svg {
+	height: 3rem;
+	width: 3rem;
+}
+
+.modal-form {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+}
+
+.modal-input {
+	height: 4rem;
+	padding: 0 2rem;
+
+	border: 2px solid hsl(140 0% 90%);
+	border-radius: 5px;
+	font-size: 1.8rem;
+}
+.modal-input:not(:first-child) {
+	margin-top: 2rem;
+}
+.modal-input::placeholder {
+	color: hsl(0 0% 70%);
+	font-weight: 400;
+	text-transform: capitalize;
+}
+
+.modal-btn {
+	align-items: center;
+	align-self: center;
+	display: flex;
+	justify-content: center;
+	margin-top: 3rem;
+	padding: 1.5rem 3rem;
+	width: 50%;
+
+	background: #fff;
+	border: 2px solid hsl(140 0% 90%);
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 1.8rem;
+	text-transform: capitalize;
+	transition: background .3s,
+							border-color .3s,
+							color .3s;
+}
+.modal-btn:hover {
+	background: hsl(140 50% 40%);
+	border-color: hsl(140 50% 40%);
+	color: #fff;
+}
+
+.modal-btn > svg {
+	height: 3rem;
+	margin-left: 1rem;
+	width: 3rem;
+
+	transition: fill .3s;
+}
+.modal-btn:hover > svg {
+	fill: #fff;
+}
