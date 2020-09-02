@@ -1,1 +1,1 @@
-Crisk Project
+Simple project on React
