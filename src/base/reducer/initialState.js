@@ -9,6 +9,7 @@ const roomDefault = {
 };
 
 const defaultState = {
+  'sessionId': Date.now(),
   'selectedRoom': null,
   'currentUser': {
     ...currentUserDefault
@@ -31,7 +32,8 @@ function normalize(state) {
     ...defaultState, 
     ...state, 
     selectedRoom: null,
-    currentUser: currentUserDefault }
+    currentUser: currentUserDefault,
+    sessionId: Date.now() }
 }
 
 export function normalizeInitialState(state) {

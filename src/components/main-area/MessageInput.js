@@ -71,6 +71,10 @@ class MessageInput extends Component  {
 			}
 		};
 
+		if (this.props.currentUser.email === null) {
+			data.message.user += this.props.sessionId
+		}
+
 		this.props.onSendText(data);
 		this.clearText();
 		this.focusText();
