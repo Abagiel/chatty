@@ -3,7 +3,8 @@ import {
 	CHANGE_ROOM,
 	REGISTER,
 	LOGIN,
-	LOGOUT } from './types';
+	LOGOUT,
+	CREATE_ROOM } from './types';
 
 export function reducer(state, action) {
 	switch(action.type) {
@@ -11,7 +12,7 @@ export function reducer(state, action) {
 		case SEND_TEXT:
 			const { message, date } = action.data;
 			const room = state.selectedRoom;
-			const changeRoom = state[room];
+			const changeRoom = state.rooms[room];
 
 			let messages = [];
 			if (state) {
@@ -20,9 +21,12 @@ export function reducer(state, action) {
 
 			return {
 				...state,
-				[room]: {
-					...state[room],
-					messages: [...messages, {...message, date}]
+				rooms: {
+					...state.rooms,
+					[room]: {
+						...state.rooms[room],
+						messages: [...messages, {...message, date}]
+					}
 				}
 			}
 
@@ -34,7 +38,8 @@ export function reducer(state, action) {
 
 			if (action.data.name === '' ||
 					action.data.email === '' ||
-					action.data.password === '') {
+					action.data.password === '' ||
+					Object.keys(state.users).includes(action.data.email)) {
 				return {...state}
 			}
 			return {
@@ -43,7 +48,7 @@ export function reducer(state, action) {
 					...state.users,
 					[email]: {
 						name: action.data.name,
-						password: action.data.password
+						password: action.data.password,
 					}
 				}}
 
@@ -72,6 +77,19 @@ export function reducer(state, action) {
 					email: null
 				},
 				selectedRoom: null
+			}
+
+		case CREATE_ROOM:
+			return {
+				...state,
+				rooms: {
+					...state.rooms,
+					[action.data.key]: {
+						messages: [],
+						owner: state.currentUser.email,
+						name: action.data.value
+					}
+				}
 			}
 
 		default: return state;

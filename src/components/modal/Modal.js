@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { register, login } from '../../base/reducer/actions';
+import { register, login, createRoom } from '../../base/reducer/actions';
 import { Backdrop } from '../backdrop/Backdrop';
-import { preventDefault } from '../../base/utils';
+import { preventDefault, toCamelName } from '../../base/utils';
 
 import { svgs } from '../../base/constants';
 
@@ -21,11 +21,15 @@ class Modal extends Component {
     this.setView = props.setView;
     this.onRegister = props.onRegister;
     this.onLogin = props.onLogin;
+    this.onCreateRoom = props.onCreateRoom;
   }
 
   render() {
-    const handler = this.title.toLowerCase().includes('register')
+    const title = this.title.toLowerCase();
+    const handler = title.includes('register')
       ? this.submitHandlerRegister
+      : title.includes('create')
+      ? this.submitHandlerCreate
       : this.submitHandlerLogin
 
     return (
@@ -59,14 +63,25 @@ class Modal extends Component {
 
     this.onLogin(data);
   }
+
+  submitHandlerCreate = (e) => {
+    preventDefault(e);
+    this.setView(false);
+    let data = inputsValuesToObject(e.target);
+    const value = data.name;
+    const key = toCamelName(value);
+
+    this.onCreateRoom({key, value});
+  }
 }
 
-function Input({type, placeholder}) {
+function Input({type, placeholder, name, max = 100}) {
   return <input 
             className="modal-input" 
             type={type} 
             placeholder={placeholder}
-            data-input={placeholder} 
+            data-input={name}
+            maxlength={max} 
          />
 }
 
@@ -91,7 +106,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     onRegister: register,
-    onLogin: login
+    onLogin: login,
+    onCreateRoom: createRoom
   }, dispatch);
 }
 

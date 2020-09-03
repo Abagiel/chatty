@@ -1,18 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { logout } from '../../base/reducer/actions';
 
+import { CreateChatModal } from '../create-chat-modal/CreateChatModal';
+
 import { svgs } from '../../base/constants';
 
 function TrueLogin(props) {
+	const [isModal, setModal] = useState(false);
+
+	const modal = isModal
+		? <CreateChatModal setView={setModal}/> 
+		: null;
+
 	return (
 		<div className="header-user">
-			U
+			{modal}
+			{props.currentUser.name[0]}
 			<div className="header-user__menu">
+				<h4 className="border-b">{props.currentUser.name}</h4>
 				<div>
-					<button className="header-user__btn">Create chat</button>
+					<button onClick={() => setModal(true)} className="header-user__btn">Create chat</button>
 					{svgs.create}
 				</div>
 				<div>
@@ -24,8 +34,8 @@ function TrueLogin(props) {
 	)
 }
 
-function mapStateToProps(state) {
-	return {};
+function mapStateToProps({currentUser}) {
+	return {currentUser};
 }
 
 function mapDispatchToProps(dispatch) {

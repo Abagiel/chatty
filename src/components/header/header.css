@@ -40,8 +40,6 @@ header {
 }
 
 .header-user {
-	position: relative;
-
 	align-items: center;
 	display: flex;
 	justify-content: center;
@@ -62,8 +60,8 @@ header {
 
 .header-user__menu {
 	position: absolute;
-	right: 0;
-	top: 100%;
+	right: 3rem;
+	top: 4.5rem;
 
 	align-items: center;
 	display: none;

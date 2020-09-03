@@ -5,8 +5,8 @@ import Modal from '../modal/Modal';
 import { svgs } from '../../base/constants';
 
 const inputs = [
-  { type: 'email', placeholder: 'email' },
-  { type: 'password', placeholder: 'password' }
+  { type: 'email', placeholder: 'email', name: 'email' },
+  { type: 'password', placeholder: 'password', name: 'password' }
 ];
 
 export function LoginModal(props) {

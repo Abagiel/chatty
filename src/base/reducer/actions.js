@@ -3,7 +3,8 @@ import {
 	CHANGE_ROOM, 
 	REGISTER,
 	LOGIN,
-	LOGOUT } from './types';
+	LOGOUT,
+	CREATE_ROOM } from './types';
 
 export function sendText(data) {
 	return {
@@ -39,6 +40,13 @@ export function login(data) {
 export function logout(data) {
 	return {
 		type: LOGOUT,
+		data
+	}
+}
+
+export function createRoom(data) {
+	return {
+		type: CREATE_ROOM,
 		data
 	}
 }

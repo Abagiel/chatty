@@ -13,12 +13,16 @@ const defaultState = {
   'currentUser': {
     ...currentUserDefault
   },
-  'openRoom': {
-    ...roomDefault
+  'rooms': {
+    'OpenRoom': {
+      ...roomDefault,
+      name: 'open room'
+    },
+    'PrivateRoom': {
+      ...roomDefault,
+      name: 'private room'
+    } 
   },
-  'privateRoom': {
-    ...roomDefault
-  }, 
   'users': {}
 };
 

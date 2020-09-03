@@ -6,7 +6,7 @@ import MessageItem from './MessageItem';
 
 function MessageBoard(props) {
 	const selectedRoom = props.selectedRoom;
-	const messages = props[selectedRoom].messages;
+	const messages = props.rooms[selectedRoom].messages;
 
 	return (
 		<div className="message-board">

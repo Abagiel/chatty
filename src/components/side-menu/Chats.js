@@ -9,24 +9,38 @@ import Chat from './Chat';
 import { svgs } from '../../base/constants';
 
 export function Chats(props) {
+	const rooms = getRooms(props);
+
 	return (
 		<div className="side-menu__chats">
 			<h3 className="border-b">{props.title}</h3>
-			<Chat 
-				svg={svgs.lockOpen} 
-				title="open room"
-				changeRoom={props.onChangeRoom}/>
-
-			<Chat 
-				svg={svgs.lockClose} 
-				title="private room"
-				changeRoom={props.onChangeRoom}/>
+			{rooms}
 		</div>
 	)
 }
 
-function mapStateToProps(state) {
-	return state;
+function getRooms(props) {
+	return Object.values(props.rooms).map(room => {
+		if (room.owner === 'site' && props.ownerIsSite) {
+			return <Chat 
+				svg={svgs[room.name]} 
+				title={room.name}
+				changeRoom={props.onChangeRoom}/>
+		} else if (room.owner !== 'site' &&
+				!props.ownerIsSite) {
+				return <Chat 
+					svg={svgs['open room']} 
+					title={room.name}
+					changeRoom={props.onChangeRoom}/>
+		} else {
+			return null;
+		}
+
+	})
+}
+
+function mapStateToProps({rooms}) {
+	return {rooms};
 }
 
 function mapDispatchToProps(dispatch) {

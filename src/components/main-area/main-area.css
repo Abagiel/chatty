@@ -67,7 +67,9 @@ main {
 }
 
 .message-avatar {
-	display: inline-block;
+	align-items: center;
+	display: flex;
+	justify-content: center;
 	height: 30px;
 	margin-right: 1rem;
 	width: 30px;
@@ -78,6 +80,9 @@ main {
 
 .message-item.you .message-avatar {
 	order: 2;
+
+	color: #000;
+	font-weight: bold;
 }
 
 .message-nickname {

@@ -11,7 +11,7 @@ export function MessageItem(props) {
 		<div className={clas}>
 			<div className="message-info">
 				<div>
-					<span className="message-avatar">A</span>
+					<span className="message-avatar">{user[0]}</span>
 					<span className="message-nickname">{user}</span>
 				</div>
 				<span className="message-date">{date}</span>

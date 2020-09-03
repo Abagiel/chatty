@@ -34,12 +34,6 @@ aside {
 	height: 3rem;
 	width: 3rem;
 }
-.side-menu__item:not(:last-child) > svg {
-	fill: hsl(140 70% 50%);
-}
-.side-menu__item:last-child > svg {
-	fill: hsl(50 70% 50%);
-}
 
 .side-menu__message {
 	padding: .5rem;

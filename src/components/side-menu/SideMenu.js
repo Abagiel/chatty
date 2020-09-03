@@ -9,7 +9,12 @@ export class SideMenu extends Component {
 		return (
 			<aside>
 				<div>
-					<Chats title="Common chats"/>
+					<Chats 
+						title="Common chats" 
+						ownerIsSite={true}/>
+					<Chats 
+						title="Users chats" 
+						ownerIsSite={false}/>
 				</div>
 			</aside>
 		)

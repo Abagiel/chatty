@@ -16,6 +16,15 @@ body {
 	overflow: hidden;
 }
 
+h4 {
+	margin: .5rem 0;
+
+	color: hsl(140 50% 50%);
+	font-size: 1.8rem;
+	text-align: center;
+	text-transform: capitalize;
+}
+
 h3 {
 	padding: 1rem 0;
 	margin: 2rem 0;

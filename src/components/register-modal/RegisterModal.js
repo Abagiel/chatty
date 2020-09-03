@@ -5,9 +5,9 @@ import Modal from '../modal/Modal';
 import { svgs } from '../../base/constants';
 
 const inputs = [
-  { type: 'text', placeholder: 'name' },
-  { type: 'password', placeholder: 'password' },
-  { type: 'email', placeholder: 'email' }
+  { type: 'text', placeholder: 'name', name: 'name' },
+  { type: 'password', placeholder: 'password', name: 'password' },
+  { type: 'email', placeholder: 'email', name: 'email' }
 ];
 
 export function RegisterModal(props) {
