@@ -1,3 +1,5 @@
+import { timeOptions } from './constants';
+
 export function preventDefault(e) {
 	e.preventDefault();
 }
@@ -20,4 +22,9 @@ export function toCamelName(str) {
 	}, r)
 
 	return r;
+}
+
+export function getTime(region) {
+	const date = new Date();
+	return date.toLocaleString(region, timeOptions);
 }

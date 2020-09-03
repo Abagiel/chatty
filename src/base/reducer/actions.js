@@ -6,12 +6,14 @@ import {
 	LOGOUT,
 	CREATE_ROOM } from './types';
 
+import { getTime } from '../utils';
+
 export function sendText(data) {
 	return {
 		type: SEND_TEXT,
 		data: {
 			...data,
-			date: Date.now()
+			date: getTime()
 		}
 	}
 }

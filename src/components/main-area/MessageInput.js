@@ -10,17 +10,54 @@ import { svgs } from '../../base/constants';
 class MessageInput extends Component  {
 	constructor(props) {
 		super();
-		this.props = props;
+		this.state = {
+			text: ''
+		};
+
+		this.textInput = React.createRef();
 	}
 
 	render() {
 		return (
 			<form className="message-form" onSubmit={this.formSubmitHandler}>
-				<input className="message-input" type="text" />
+				<input 
+					className="message-input" 
+					type="text" 
+					value={this.state.text} 
+					ref={this.textInput} 
+					onInput={this.inputHandler}
+					/>
 				{svgs.addPhoto}
 				<button className="btn-send"></button>
 			</form>
 		)
+	}
+
+	componentDidMount() {
+		this.focusText();
+		this.scrollToEnd();
+	}
+
+	componentDidUpdate() {
+		this.focusText();
+		this.scrollToEnd();
+	}
+
+	scrollToEnd() {
+		const target = document.querySelector('.message-board');
+		target.scrollTo(0, target.scrollHeight);
+	}
+
+	focusText() {
+		this.textInput.current.focus();
+	}
+
+	clearText() {
+		this.setState({text: ''});
+	}
+
+	inputHandler = (e) => {
+		this.setState({text: e.target.value})
 	}
 
  	formSubmitHandler = (e) => {
@@ -35,6 +72,8 @@ class MessageInput extends Component  {
 		};
 
 		this.props.onSendText(data);
+		this.clearText();
+		this.focusText();
 	}
 }
 
