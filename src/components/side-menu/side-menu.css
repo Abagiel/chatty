@@ -4,6 +4,17 @@ aside {
 
 	background: hsl(140 50% 40%);
 	box-shadow: 4px 4px 4px hsla(140, 50%, 10%, 0.3);
+	overflow-y: scroll;
+}
+aside::-webkit-scrollbar {
+	width: .5rem;
+}
+aside::-webkit-scrollbar-track {
+	background: hsl(140 50% 40%);
+}
+aside::-webkit-scrollbar-thumb {
+	background: hsl(140 50% 50%);
+	border-radius: 5px;
 }
 
 .side-menu__chats:not(:last-child) {

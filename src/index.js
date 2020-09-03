@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import { Provider } from 'react-redux';
 
-import App from './components/App.js';
+import App from './components/App';
+import { ErrorBoundary } from './components/error-boundary/ErrorBoundary';
 
 import { store } from './base/store';
 import { LocalStorageClient } from './base/clients/LocalStorageClient';
@@ -18,7 +19,9 @@ store.dispatch({type: '__INIT__'});
 
 ReactDom.render(
 	<Provider store={store}>
-		<App/>
+		<ErrorBoundary>
+			<App/>
+		</ErrorBoundary>
 	</Provider>,
 	document.querySelector('#root')
 )

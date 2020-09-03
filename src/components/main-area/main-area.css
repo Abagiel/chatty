@@ -5,6 +5,7 @@ main {
 	background: hsl(140 50% 50%);
 } 
 
+
 .message-backdrop {
 	align-items: center;
 	display: flex;
@@ -33,6 +34,16 @@ main {
 
 	color: #fff;
 	overflow-y: scroll;
+}
+.message-board::-webkit-scrollbar {
+	width: .5rem;
+}
+.message-board::-webkit-scrollbar-track {
+	background: hsl(140 50% 50%);
+}
+.message-board::-webkit-scrollbar-thumb {
+	background: hsl(140 50% 40%);
+	border-radius: 5px;
 }
 
 .message-item {
