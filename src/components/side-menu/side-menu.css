@@ -5,6 +5,8 @@ aside {
 	background: hsl(140 50% 40%);
 	box-shadow: 4px 4px 4px hsla(140, 50%, 10%, 0.3);
 	overflow-y: scroll;
+	scrollbar-color: hsl(140 50% 50%) hsl(140 50% 40%);
+	scrollbar-width: thin;
 }
 aside::-webkit-scrollbar {
 	width: .5rem;

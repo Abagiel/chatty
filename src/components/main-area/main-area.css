@@ -34,6 +34,8 @@ main {
 
 	color: #fff;
 	overflow-y: scroll;
+	scrollbar-color: hsl(140 50% 40%) hsl(140 50% 50%);
+	scrollbar-width: thin;
 }
 .message-board::-webkit-scrollbar {
 	width: .5rem;
