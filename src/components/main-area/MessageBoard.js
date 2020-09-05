@@ -23,7 +23,8 @@ function renderMessages(messages) {
 
 function mapMessages(message) {
 	return <MessageItem 
-		info={message} />
+		info={message}
+		key={message.timestamp + message.user + message.email} />
 }
 
 const mapStateToProps = (state) => {

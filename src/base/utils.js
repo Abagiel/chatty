@@ -15,7 +15,7 @@ export function toCamelName(str) {
 
 	let r = '';
 
-	if (s.length <= 1) return str;
+	if (s.length <= 1) return capitalize(str);
 
 	s.reduce((init, next) => {
 		return r += capitalize(next);

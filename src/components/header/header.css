@@ -60,8 +60,8 @@ header {
 
 .header-user__menu {
 	position: absolute;
-	right: 3rem;
-	top: 4.5rem;
+	right: 1.6rem;
+	top: 4.2rem;
 
 	align-items: center;
 	display: none;
@@ -74,6 +74,8 @@ header {
 }
 
 .header-user__menu > div {
+	position: relative;
+
 	align-items: center;
 	display: flex;
 	justify-content: center;
@@ -87,6 +89,55 @@ header {
 }
 .header-user__menu > div:hover > svg {
 	fill: hsl(140 50% 40%);
+}
+
+.header-user__menu ul {
+	position: absolute;
+	top: 0;
+	right: 100%;
+
+	align-items: center;
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	margin: 0;
+	padding: 0 2rem;
+
+	background: #fff;
+	border-radius: 5px;
+	box-shadow: 0 2px 4px hsla(0, 0%, 0%, .2);
+	list-style: none;
+}
+.header-user__menu ul:hover {
+	display: flex;
+}
+
+.header-user__btn:hover ~ ul {
+	display: flex;
+}
+
+.header-user__menu ul li {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+
+	color: hsl(140 50% 40%);
+	font-size: 1.8rem;
+	font-weight: 400;
+}
+
+.header-user__menu ul li span {
+	flex: 1;
+	margin-right: 2rem;
+}
+
+.header-user__menu ul li > button {
+	flex: 0;
+	padding: .5rem 0;
+}
+.header-user__menu ul li svg:hover {
+	fill: hsl(0 50% 50%);
 }
 
 .header-user__btn {

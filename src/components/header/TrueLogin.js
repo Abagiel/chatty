@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { logout } from '../../base/reducer/actions';
+import { logout, deleteRoom } from '../../base/reducer/actions';
 
 import { CreateChatModal } from '../create-chat-modal/CreateChatModal';
 
+import { toCamelName } from '../../base/utils'
 import { svgs } from '../../base/constants';
 
 function TrueLogin(props) {
@@ -22,6 +23,13 @@ function TrueLogin(props) {
 			<div className="header-user__menu">
 				<h4 className="border-b">{props.currentUser.name}</h4>
 				<div>
+					<button className="header-user__btn">My chats</button>
+					{svgs.arrowRight}
+					<ul>
+						{createChatsList(props)}
+					</ul>
+				</div>
+				<div>
 					<button onClick={() => setModal(true)} className="header-user__btn">Create chat</button>
 					{svgs.create}
 				</div>
@@ -34,13 +42,26 @@ function TrueLogin(props) {
 	)
 }
 
-function mapStateToProps({currentUser}) {
-	return {currentUser};
+function createChatsList({currentUser, rooms, onDeleteRoom}) {
+	return Object.values(rooms).map(room => {
+		if (currentUser.email === room.owner) {
+			const name = toCamelName(room.name);
+			return <li key={room.name}>
+				<span>{room.name}</span>
+				<button className="header-user__btn" onClick={() => onDeleteRoom(name)}>{svgs.delete}</button></li>
+		}
+		return null;
+	})
+}
+
+function mapStateToProps({currentUser, rooms}) {
+	return {currentUser, rooms};
 }
 
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
-		onLogout: logout
+		onLogout: logout,
+		onDeleteRoom: deleteRoom
 	}, dispatch);
 }
 

@@ -4,7 +4,8 @@ import {
 	REGISTER,
 	LOGIN,
 	LOGOUT,
-	CREATE_ROOM } from './types';
+	CREATE_ROOM,
+	DELETE_ROOM } from './types';
 
 import { getTime } from '../utils';
 
@@ -13,7 +14,8 @@ export function sendText(data) {
 		type: SEND_TEXT,
 		data: {
 			...data,
-			date: getTime()
+			date: getTime(),
+			timestamp: Date.now()
 		}
 	}
 }
@@ -49,6 +51,13 @@ export function logout(data) {
 export function createRoom(data) {
 	return {
 		type: CREATE_ROOM,
+		data
+	}
+}
+
+export function deleteRoom(data) {
+	return {
+		type: DELETE_ROOM,
 		data
 	}
 }

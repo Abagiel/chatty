@@ -11,6 +11,8 @@ import { svgs } from '../../base/constants';
 export function Chats(props) {
 	const rooms = getRooms(props);
 
+	if (rooms[0] === null && rooms.length <= 2) return null;
+
 	return (
 		<div className="side-menu__chats">
 			<h3 className="border-b">{props.title}</h3>
@@ -25,13 +27,15 @@ function getRooms(props) {
 			return <Chat 
 				svg={svgs[room.name]} 
 				title={room.name}
-				changeRoom={props.onChangeRoom}/>
+				changeRoom={props.onChangeRoom}
+				key={room.name}/>
 		} else if (room.owner !== 'site' &&
 				!props.ownerIsSite) {
 				return <Chat 
 					svg={svgs['open room']} 
 					title={room.name}
-					changeRoom={props.onChangeRoom}/>
+					changeRoom={props.onChangeRoom}
+					key={room.name}/>
 		} else {
 			return null;
 		}

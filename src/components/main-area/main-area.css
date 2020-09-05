@@ -122,19 +122,8 @@ main {
 .message-form {
 	align-items: center;
 	display: flex;
+	max-width: 80rem;
 	padding: 1rem 0 0;
-}
-
-.message-form > svg {
-	flex: 10;
-	height: 3rem;
-	width: 3rem;
-
-	cursor: pointer;
-	transition: fill .3s;
-}
-.message-form > svg:hover {
-	fill: #fff;
 }
 
 .message-input {
@@ -157,4 +146,8 @@ main {
 	border: none;
 	clip-path: polygon(0 0, 100% 50%, 0 100%);
 	cursor: pointer;
+	transition: background .3s;
+}
+.btn-send:hover {
+	background: hsl(140 50% 30%);
 }

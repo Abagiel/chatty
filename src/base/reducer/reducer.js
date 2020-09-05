@@ -4,13 +4,14 @@ import {
 	REGISTER,
 	LOGIN,
 	LOGOUT,
-	CREATE_ROOM } from './types';
+	CREATE_ROOM,
+	DELETE_ROOM } from './types';
 
 export function reducer(state, action) {
 	switch(action.type) {
 
 		case SEND_TEXT:
-			const { message, date } = action.data;
+			const { message, date, timestamp } = action.data;
 			const room = state.selectedRoom;
 			const changeRoom = state.rooms[room];
 
@@ -25,7 +26,7 @@ export function reducer(state, action) {
 					...state.rooms,
 					[room]: {
 						...state.rooms[room],
-						messages: [...messages, {...message, date}]
+						messages: [...messages, {...message, date, timestamp}]
 					}
 				}
 			}
@@ -80,6 +81,10 @@ export function reducer(state, action) {
 			}
 
 		case CREATE_ROOM:
+			if (state.rooms[action.data.key]) {
+				return {...state}
+			}
+
 			return {
 				...state,
 				rooms: {
@@ -91,6 +96,16 @@ export function reducer(state, action) {
 					}
 				}
 			}
+
+		case DELETE_ROOM:
+			const newState = {...state};
+			delete newState.rooms[action.data];
+
+			return {
+				...state,
+				selectedRoom: null,
+				rooms: {...newState.rooms}
+			} 
 
 		default: return state;
 	}

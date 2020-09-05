@@ -5,8 +5,6 @@ import { bindActionCreators } from 'redux';
 import { sendText } from '../../base/reducer/actions';
 import { preventDefault } from '../../base/utils';
 
-import { svgs } from '../../base/constants';
-
 class MessageInput extends Component  {
 	constructor(props) {
 		super();
@@ -22,12 +20,11 @@ class MessageInput extends Component  {
 			<form className="message-form" onSubmit={this.formSubmitHandler}>
 				<input 
 					className="message-input" 
-					type="text" 
+					type="text"
 					value={this.state.text} 
 					ref={this.textInput} 
-					onInput={this.inputHandler}
+					onChange={this.inputHandler}
 					/>
-				{svgs.addPhoto}
 				<button className="btn-send"></button>
 			</form>
 		)

@@ -4,3 +4,4 @@ export const REGISTER = 'REGISTER';
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 export const CREATE_ROOM = 'CREATE_ROOM';
+export const DELETE_ROOM = 'DELETE_ROOM';

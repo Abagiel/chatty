@@ -38,7 +38,7 @@ class Modal extends Component {
       	<div className="modal">
 					<h2>{this.title}</h2>
 					<form onSubmit={handler} className="modal-form">
-						{this.inputs.map(input => <Input {...input} />)}
+						{this.inputs.map(input => <Input {...input} key={input.type+input.placeholder} />)}
 
 						<button className="modal-btn">{this.btnText} {this.svg}</button>
             <div onClick={() => this.setView(false)} className="modal-close">{svgs.clear}</div>
@@ -81,7 +81,7 @@ function Input({type, placeholder, name, max = 100}) {
             type={type} 
             placeholder={placeholder}
             data-input={name}
-            maxlength={max} 
+            maxLength={max} 
          />
 }
 
