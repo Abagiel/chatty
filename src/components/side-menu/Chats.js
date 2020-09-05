@@ -27,13 +27,19 @@ function getRooms(props) {
 			return <Chat 
 				svg={svgs[room.name]} 
 				title={room.name}
+				private={room.private}
 				changeRoom={props.onChangeRoom}
 				key={room.name}/>
 		} else if (room.owner !== 'site' &&
 				!props.ownerIsSite) {
+				const svg = room.password
+					? svgs['private room']
+					: svgs['open room'];
+
 				return <Chat 
-					svg={svgs['open room']} 
+					svg={svg} 
 					title={room.name}
+					private={room.private}
 					changeRoom={props.onChangeRoom}
 					key={room.name}/>
 		} else {

@@ -70,13 +70,15 @@ class Modal extends Component {
     let data = inputsValuesToObject(e.target);
     const value = data.name;
     const key = toCamelName(value);
+    const password = data.password;
 
-    this.onCreateRoom({key, value});
+    this.onCreateRoom({key, value, password});
   }
 }
 
-function Input({type, placeholder, name, max = 100}) {
+function Input({type, placeholder, name, max = 100, focus = false}) {
   return <input 
+            autoFocus={focus}
             className="modal-input" 
             type={type} 
             placeholder={placeholder}

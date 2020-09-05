@@ -47,12 +47,3 @@ aside::-webkit-scrollbar-thumb {
 	height: 3rem;
 	width: 3rem;
 }
-
-.side-menu__message {
-	padding: .5rem;
-
-	background: hsl(140 50% 50%);
-	border-radius: 5px;
-	color: #000;
-	font-weight: 700;
-}

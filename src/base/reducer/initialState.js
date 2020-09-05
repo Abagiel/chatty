@@ -21,7 +21,8 @@ const defaultState = {
     },
     'PrivateRoom': {
       ...roomDefault,
-      name: 'private room'
+      name: 'private room',
+      private: true
     } 
   },
   'users': {}

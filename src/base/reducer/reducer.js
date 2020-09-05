@@ -85,6 +85,8 @@ export function reducer(state, action) {
 				return {...state}
 			}
 
+			let priv = Boolean(action.data.password);
+
 			return {
 				...state,
 				rooms: {
@@ -92,7 +94,9 @@ export function reducer(state, action) {
 					[action.data.key]: {
 						messages: [],
 						owner: state.currentUser.email,
-						name: action.data.value
+						name: action.data.value,
+						password: action.data.password,
+						private: priv
 					}
 				}
 			}

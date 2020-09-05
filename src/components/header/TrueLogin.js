@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { logout, deleteRoom } from '../../base/reducer/actions';
+import { logout, deleteRoom, changeRoom } from '../../base/reducer/actions';
 
 import { CreateChatModal } from '../create-chat-modal/CreateChatModal';
 
@@ -42,12 +42,12 @@ function TrueLogin(props) {
 	)
 }
 
-function createChatsList({currentUser, rooms, onDeleteRoom}) {
+function createChatsList({currentUser, rooms, onDeleteRoom, onChangeRoom}) {
 	return Object.values(rooms).map(room => {
 		if (currentUser.email === room.owner) {
 			const name = toCamelName(room.name);
 			return <li key={room.name}>
-				<span>{room.name}</span>
+				<span onClick={() => onChangeRoom(name)}>{room.name}</span>
 				<button className="header-user__btn" onClick={() => onDeleteRoom(name)}>{svgs.delete}</button></li>
 		}
 		return null;
@@ -61,7 +61,8 @@ function mapStateToProps({currentUser, rooms}) {
 function mapDispatchToProps(dispatch) {
 	return bindActionCreators({
 		onLogout: logout,
-		onDeleteRoom: deleteRoom
+		onDeleteRoom: deleteRoom,
+		onChangeRoom: changeRoom
 	}, dispatch);
 }
 

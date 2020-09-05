@@ -5,7 +5,7 @@ import Modal from '../modal/Modal';
 import { svgs } from '../../base/constants';
 
 const inputs = [
-  { type: 'email', placeholder: 'email', name: 'email' },
+  { type: 'email', placeholder: 'email', name: 'email', focus: true },
   { type: 'password', placeholder: 'password', name: 'password' }
 ];
 
