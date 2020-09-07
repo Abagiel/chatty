@@ -8,23 +8,26 @@ import { MainWall } from './MainWall';
 import './main-area.css';
 
 function MainArea(props) {
-	let content = null;
-
-	if (props.selectedRoom) {
-		content = (
-			<React.Fragment>
-				<MessageBoard/>
-				<MessageInput/>
-			</React.Fragment>);
-	} else {
-		content = <MainWall />
-	}
+	const content = showComponent(props.selectedRoom);
 
   return (
     <main>
 			{content}	
 		</main>
   )
+}
+
+function showComponent(option) {
+	if (option) {
+		return (
+			<React.Fragment>
+				<MessageBoard/>
+				<MessageInput/>
+			</React.Fragment>
+		)
+	} else {
+		return <MainWall/>
+	}
 }
 
 function mapStateToProps({selectedRoom}) {

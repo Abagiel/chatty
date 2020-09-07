@@ -2,15 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 export function MessageItem(props) {
-	const { user, email, date, text } = props.info;
-	let clas = props.currentUser.email === email && email !== null
-		? "message-item you" 
-		: "message-item";
-
-	if (email === null && 
-			props.currentUser.name + props.sessionId === user) {
-		clas += ' you';
-	}
+	const { user, date, text } = props.info;
+	const clas = getClass(props);
 
 	return (
 		<div className={clas}>
@@ -26,6 +19,19 @@ export function MessageItem(props) {
 			</p>
 		</div>
 	)
+}
+
+function getClass({sessionId, currentUser, info: { email, user }}) {
+	let clas = currentUser.email === email && email !== null
+		? "message-item you" 
+		: "message-item";
+
+	if (email === null && 
+			currentUser.name + sessionId === user) {
+		clas += ' you';
+	}
+
+	return clas;
 }
 
 function mapStateToProps({ currentUser, sessionId }) {

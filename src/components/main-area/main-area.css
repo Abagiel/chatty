@@ -49,9 +49,11 @@ main {
 }
 
 .message-item {
+	position: relative;
+
 	align-self: flex-start;
 	margin-bottom: 2rem;
-	padding: 2rem;
+	padding: 1rem 2rem 2rem;
 	max-width: 70%;
 	width: auto;
 
@@ -75,8 +77,8 @@ main {
 	display: flex;
 }
 
-.message-item.you .message-info > div {
-	order: 2;
+.message-item.you .message-info {
+	justify-content: flex-end;
 }
 
 .message-avatar {
@@ -87,32 +89,35 @@ main {
 	margin-right: 1rem;
 	width: 30px;
 
-	border: 2px solid #fff;
+	border: 2px solid hsl(140 50% 80%);
 	border-radius: 50%;
+	color: hsl(140 50% 80%);
 }
 
 .message-item.you .message-avatar {
 	order: 2;
+	margin-right: 0;
 
-	color: #000;
+	color: hsl(140 80% 50%);
+	border-color: hsl(140 80% 50%);
 	font-weight: bold;
 }
 
 .message-nickname {
 	margin-right: 1rem;
 
-	color: hsl(140 50% 10%);
+	color: hsl(140 50% 90%);
 	font-size: 1.8rem;
 	font-weight: 500;
 }
 
 .message-date {
-	color: hsl(140 50% 10%);
-	font-weight: 500;
-}
+	position: absolute;
+	bottom: 0;
+	right: .6rem;
 
-.message-item.you .message-date {
-	margin-right: 1rem;
+	color: hsl(140 50% 65%);
+	font-weight: 500;
 }
 
 .message-text {

@@ -30,11 +30,11 @@ function TrueLogin(props) {
 					</ul>
 				</div>
 				<div>
-					<button onClick={() => setModal(true)} className="header-user__btn">Create chat</button>
+					{createHeaderUserBtn(setModal, 'Create chat', true)}
 					{svgs.create}
 				</div>
 				<div>
-					<button onClick={() => props.onLogout()} className="header-user__btn">Log Out</button>
+					{createHeaderUserBtn(props.onLogout, 'Log Out')}
 					{svgs.exit}
 				</div>
 			</div>
@@ -42,16 +42,34 @@ function TrueLogin(props) {
 	)
 }
 
-function createChatsList({currentUser, rooms, onDeleteRoom, onChangeRoom}) {
-	return Object.values(rooms).map(room => {
-		if (currentUser.email === room.owner) {
-			const name = toCamelName(room.name);
-			return <li key={room.name}>
-				<span onClick={() => onChangeRoom(name)}>{room.name}</span>
-				<button className="header-user__btn" onClick={() => onDeleteRoom(name)}>{svgs.delete}</button></li>
+function createChatsList(props) {
+	return Object
+				 .values(props.rooms)
+				 .map(room => createChatListItem(room, props));
+}
+
+function createChatListItem(room, props) {
+	if (props.currentUser.email === room.owner) {
+		const name = toCamelName(room.name);
+		return (
+			<li key={room.name}>
+				<span 
+					onClick={() => props.onChangeRoom(name)}>
+					{room.name}
+				</span>
+				{createHeaderUserBtn(props.onDeleteRoom, svgs.delete, name)}
+			</li>
+			)
 		}
 		return null;
-	})
+}
+
+function createHeaderUserBtn(func, btnContent, arg = null) {
+	return <button 
+				   onClick={() => func(arg)} 
+				   className="header-user__btn">
+				   {btnContent}
+				 </button>
 }
 
 function mapStateToProps({currentUser, rooms}) {

@@ -17,7 +17,9 @@ class MessageInput extends Component  {
 
 	render() {
 		return (
-			<form className="message-form" onSubmit={this.formSubmitHandler}>
+			<form 
+				className="message-form" 
+				onSubmit={this.formSubmitHandler}>
 				<input 
 					className="message-input" 
 					type="text"
@@ -59,6 +61,7 @@ class MessageInput extends Component  {
 
  	formSubmitHandler = (e) => {
 		preventDefault(e);
+
 		const text = e.target.querySelector('input').value;
 		const data = {
 			message: {
@@ -79,8 +82,8 @@ class MessageInput extends Component  {
 }
 
 
-function mapStateToProps(state) {
-	return state;
+function mapStateToProps({currentUser, sessionId, selectedRoom}) {
+	return {currentUser, sessionId, selectedRoom};
 }
 
 function mapDispatchToProps(dispatch) {

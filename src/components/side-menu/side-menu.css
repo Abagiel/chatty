@@ -24,6 +24,8 @@ aside::-webkit-scrollbar-thumb {
 }
 
 .side-menu__item {
+ 	position: relative;
+
 	align-items: center;
 	display: flex;
 	justify-content: space-between;
@@ -46,4 +48,17 @@ aside::-webkit-scrollbar-thumb {
 .side-menu__item > svg {
 	height: 3rem;
 	width: 3rem;
+}
+
+.side-menu__item input {
+	position: absolute;
+	left: 0;
+	top: 0;
+
+	padding: 1rem;
+	width: 100%;
+
+	border: none;
+	border-radius: 5px;
+	font-size: 1.8rem;
 }

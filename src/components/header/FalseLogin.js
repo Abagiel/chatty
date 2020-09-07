@@ -15,8 +15,16 @@ export function FalseLogin() {
 	return (
 		<div className="header-btn__container">
 			{modal}
-			<button className="header-btn" onClick={() => setModal("log")}>Login</button>
-			<button className="header-btn" onClick={() => setModal("reg")}>Register</button>
+			{createHeaderBtn('Login', setModal, 'log')}
+			{createHeaderBtn('Register', setModal, 'reg')}
 		</div>
 	)
+}
+
+function createHeaderBtn(text, func, arg) {
+	return <button 
+				   className="header-btn" 
+				   onClick={() => func(arg)}>
+				   {text}
+				 </button>
 }

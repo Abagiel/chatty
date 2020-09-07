@@ -1,0 +1,12 @@
+.error-message {
+	color: hsl(195 70% 50%);
+	font-size: 4rem;
+	text-align: center;
+}
+
+.error-message > svg {
+	height: 20rem;
+	width: 20rem;
+
+	fill: hsl(195 70% 50%);
+}

@@ -14,8 +14,8 @@ export function reducer(state, action) {
 			const { message, date, timestamp } = action.data;
 			const room = state.selectedRoom;
 			const changeRoom = state.rooms[room];
-
 			let messages = [];
+
 			if (state) {
 				messages = [...changeRoom.messages];
 			}
@@ -31,18 +31,17 @@ export function reducer(state, action) {
 				}
 			}
 
-			case CHANGE_ROOM:
-				return {...state, selectedRoom: action.data}
-
 		case REGISTER: 
 			const email = action.data.email;
+			const usersArr = Object.keys(state.users);
 
-			if (action.data.name === '' ||
-					action.data.email === '' ||
-					action.data.password === '' ||
-					Object.keys(state.users).includes(action.data.email)) {
+			if (!action.data.name ||
+					!action.data.email ||
+					!action.data.password ||
+					usersArr.includes(action.data.email)) {
 				return {...state}
 			}
+
 			return {
 				...state, 
 				users: {
@@ -56,6 +55,7 @@ export function reducer(state, action) {
 		case LOGIN:
 			const mail = action.data.email;
 			const password = action.data.password;
+
 			if (state.users[mail] &&
 					state.users[mail].password === password) {
 				return {
@@ -66,9 +66,7 @@ export function reducer(state, action) {
 					}
 				}
 			}
-			return {
-				...state
-			}
+			return state;
 
 		case LOGOUT:
 			return {
@@ -110,6 +108,9 @@ export function reducer(state, action) {
 				selectedRoom: null,
 				rooms: {...newState.rooms}
 			} 
+
+		case CHANGE_ROOM:
+			return {...state, selectedRoom: action.data}
 
 		default: return state;
 	}

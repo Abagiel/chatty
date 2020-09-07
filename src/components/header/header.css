@@ -1,5 +1,5 @@
 header {
-	z-index: 0;
+	z-index: 1;
 
 	align-items: center;
 	display: flex;
@@ -62,6 +62,7 @@ header {
 	position: absolute;
 	right: 1.6rem;
 	top: 4.2rem;
+	z-index: 5;
 
 	align-items: center;
 	display: none;
@@ -101,6 +102,7 @@ header {
 	flex-direction: column;
 	justify-content: center;
 	margin: 0;
+	min-width: 20rem;
 	padding: 0 2rem;
 
 	background: #fff;

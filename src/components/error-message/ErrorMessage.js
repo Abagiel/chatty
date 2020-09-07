@@ -2,11 +2,13 @@ import React from 'react';
 
 import { svgs } from '../../base/constants';
 
+import './error-message.css';
+
 export function ErrorMessage() {
 	return (
-		<div>
-			<h1>Something went wrong :(</h1>
-			{svgs.clear}
+		<div className='error-message'>
+			<h1>Something went wrong</h1>
+			{svgs.sad}
 		</div>
 	)
 }

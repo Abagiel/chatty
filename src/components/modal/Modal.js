@@ -37,7 +37,9 @@ class Modal extends Component {
     		<Backdrop setView={this.setView} />
       	<div className="modal">
 					<h2>{this.title}</h2>
-					<form onSubmit={handler} className="modal-form">
+					<form 
+            onSubmit={handler} 
+            className="modal-form">
 						{this.inputs.map(input => <Input {...input} key={input.type+input.placeholder} />)}
 
 						<button className="modal-btn">{this.btnText} {this.svg}</button>
@@ -50,6 +52,7 @@ class Modal extends Component {
 
   submitHandlerRegister = (e) => {
     preventDefault(e);
+
     this.setView(false);
     let data = inputsValuesToObject(e.target);
     

@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { connect } from 'react-redux';
 
 import MessageItem from './MessageItem';
@@ -27,8 +26,8 @@ function mapMessages(message) {
 		key={message.timestamp + message.user + message.email} />
 }
 
-const mapStateToProps = (state) => {
-  return state;
+const mapStateToProps = ({selectedRoom, rooms}) => {
+  return {selectedRoom, rooms};
 };
 
 export default connect(mapStateToProps)(MessageBoard);

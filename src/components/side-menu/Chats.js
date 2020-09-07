@@ -24,29 +24,29 @@ export function Chats(props) {
 function getRooms(props) {
 	return Object.values(props.rooms).map(room => {
 		if (room.owner === 'site' && props.ownerIsSite) {
-			return <Chat 
-				svg={svgs[room.name]} 
-				title={room.name}
-				private={room.private}
-				changeRoom={props.onChangeRoom}
-				key={room.name}/>
+			return createChat(svgs[room.name], room.name, room.private, props.onChangeRoom, room.name);
+
 		} else if (room.owner !== 'site' &&
 				!props.ownerIsSite) {
 				const svg = room.password
 					? svgs['private room']
 					: svgs['open room'];
 
-				return <Chat 
-					svg={svg} 
-					title={room.name}
-					private={room.private}
-					changeRoom={props.onChangeRoom}
-					key={room.name}/>
+				return createChat(svg, room.name, room.private, props.onChangeRoom, room.name);
 		} else {
 			return null;
 		}
 
 	})
+}
+
+function createChat(svg, title, priv, func, key) {
+	return <Chat 
+				svg={svg} 
+				title={title}
+				private={priv}
+				changeRoom={func}
+				key={key}/>
 }
 
 function mapStateToProps({rooms}) {

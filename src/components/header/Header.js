@@ -7,8 +7,10 @@ import { FalseLogin } from './FalseLogin';
 import './header.css';
 
 function Header(props) {
-	let content = null;
-	content = props.email ? <TrueLogin/> : <FalseLogin/>; 
+	let content = props.email 
+		? <TrueLogin/> 
+		: <FalseLogin/>;
+		 
 	return (
 		<header>
 			{content}
