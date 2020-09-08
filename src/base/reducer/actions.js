@@ -5,7 +5,9 @@ import {
 	LOGIN,
 	LOGOUT,
 	CREATE_ROOM,
-	DELETE_ROOM } from './types';
+	DELETE_ROOM,
+	DELETE_NOTIFICATOR,
+	ADD_NOTIFICATOR } from './types';
 
 import { getTime } from '../utils';
 
@@ -30,34 +32,64 @@ export function changeRoom(data) {
 export function register(data) {
 	return {
 		type: REGISTER,
-		data
+		data: {
+			...data,
+			time: Date.now()
+		}
 	}
 }
 
 export function login(data) {
 	return {
 		type: LOGIN,
-		data
+		data: {
+			...data,
+			time: Date.now()
+		}
 	}
 }
 
 export function logout(data) {
 	return {
 		type: LOGOUT,
-		data
+		data: {
+			...data,
+			time: Date.now()
+		}
 	}
 }
 
 export function createRoom(data) {
 	return {
 		type: CREATE_ROOM,
-		data
+		data: {
+			...data,
+			time: Date.now()
+		}
 	}
 }
 
 export function deleteRoom(data) {
 	return {
 		type: DELETE_ROOM,
+		data,
+		time: Date.now()
+	}
+}
+
+export function deleteNotify(data) {
+	return {
+		type: DELETE_NOTIFICATOR,
 		data
+	}
+}
+
+export function addNotify(data) {
+	return {
+		type: ADD_NOTIFICATOR,
+		data: {
+			...data,
+			time: Date.now()
+		}
 	}
 }

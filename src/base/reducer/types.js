@@ -5,3 +5,5 @@ export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 export const CREATE_ROOM = 'CREATE_ROOM';
 export const DELETE_ROOM = 'DELETE_ROOM';
+export const DELETE_NOTIFICATOR = 'DELETE_NOTIFICATOR';
+export const ADD_NOTIFICATOR = 'ADD_NOTIFICATOR';

@@ -1,4 +1,6 @@
 aside {
+	z-index: 1;
+
 	grid-column: 1/2;
 	height: calc(100vh - 5rem);
 

@@ -1,0 +1,55 @@
+.notificator {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+
+	height: auto;
+	min-width: 15rem;
+	max-width: 20rem;
+}
+
+.notificator-message {
+	padding: 1rem;
+	transform: translateX(-100%);
+
+	border-right: 3px solid #fff;
+	border-radius: 5px;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	color: #fff;
+	font-size: 2rem;
+
+	animation-name: showMessage, hideMessage;
+	animation-duration: 300ms, 300ms;
+	animation-delay: 0ms, 4400ms;
+	animation-iteration-count: 1, 1;
+	animation-fill-mode: forwards, forwards;
+}
+
+.notificator-message.success {
+	background: hsl(160 80% 30%);
+	border-color: hsl(160 80% 50%);
+}
+
+.notificator-message.danger {
+	background: hsl(0 80% 30%);
+	border-color: hsl(0 80% 50%);
+}
+
+.notificator-message.warning {
+	background: hsl(60 80% 30%);
+	border-color: hsl(60 80% 50%);
+}
+
+@keyframes showMessage {
+	100% {
+		transform: translateX(0);
+	}
+}
+
+@keyframes hideMessage {
+	100% {
+		transform: translateX(-100%);
+	}
+}

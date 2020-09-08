@@ -5,7 +5,9 @@ import {
 	LOGIN,
 	LOGOUT,
 	CREATE_ROOM,
-	DELETE_ROOM } from './types';
+	DELETE_ROOM,
+	DELETE_NOTIFICATOR,
+	ADD_NOTIFICATOR } from './types';
 
 export function reducer(state, action) {
 	switch(action.type) {
@@ -39,7 +41,20 @@ export function reducer(state, action) {
 					!action.data.email ||
 					!action.data.password ||
 					usersArr.includes(action.data.email)) {
-				return {...state}
+				return {
+					...state,
+					notificator: { 
+					time: action.data.time,
+					messages: [
+					  ...state.notificator.messages, 
+						{
+							text: 'Something went wrong', 
+							type: 'danger', 
+							time: action.data.time
+						}
+					]
+				}
+				}
 			}
 
 			return {
@@ -50,7 +65,19 @@ export function reducer(state, action) {
 						name: action.data.name,
 						password: action.data.password,
 					}
-				}}
+				},
+				notificator: { 
+					time: action.data.time,
+					messages: [
+					  ...state.notificator.messages, 
+						{
+							text: 'You successufully created account!', 
+							type: 'success', 
+							time: action.data.time
+						}
+					]
+				}
+			}
 
 		case LOGIN:
 			const mail = action.data.email;
@@ -63,10 +90,34 @@ export function reducer(state, action) {
 					currentUser: {
 						name: state.users[mail].name,
 						email: mail
+					},
+					notificator: {
+						time: action.data.time, 
+						messages: [
+							...state.notificator.messages, 
+							{
+								text: 'Welcome!', 
+								type: 'success', 
+								time: action.data.time
+							}
+						]
 					}
 				}
 			}
-			return state;
+			return {
+				...state,
+				notificator: { 
+					time: action.data.time,
+					messages: [
+					  ...state.notificator.messages, 
+						{
+							text: 'Log In is failed!', 
+							type: 'danger', 
+							time: action.data.time
+						}
+					]
+				}
+			}
 
 		case LOGOUT:
 			return {
@@ -75,12 +126,36 @@ export function reducer(state, action) {
 					name: 'Guest',
 					email: null
 				},
-				selectedRoom: null
+				selectedRoom: null,
+				notificator: { 
+					time: action.data.time,
+					messages: [
+					  ...state.notificator.messages, 
+						{
+							text: 'Goodbye!', 
+							type: 'success', 
+							time: action.data.time
+						}
+					]
+				}
 			}
 
 		case CREATE_ROOM:
 			if (state.rooms[action.data.key]) {
-				return {...state}
+				return {
+					...state,
+					notificator: { 
+					time: action.data.time,
+					messages: [
+					  ...state.notificator.messages, 
+						{
+							text: 'The chat room is existing!', 
+							type: 'warning', 
+							time: action.data.time
+						}
+					]
+				}
+				}
 			}
 
 			let priv = Boolean(action.data.password);
@@ -96,6 +171,17 @@ export function reducer(state, action) {
 						password: action.data.password,
 						private: priv
 					}
+				},
+				notificator: { 
+					time: action.data.time,
+					messages: [
+					  ...state.notificator.messages, 
+						{
+							text: 'You created new chat room!', 
+							type: 'success', 
+							time: action.data.time
+						}
+					]
 				}
 			}
 
@@ -106,11 +192,49 @@ export function reducer(state, action) {
 			return {
 				...state,
 				selectedRoom: null,
-				rooms: {...newState.rooms}
+				rooms: {...newState.rooms},
+				notificator: { 
+					time: action.time,
+					messages: [
+					  ...state.notificator.messages, 
+						{
+							text: 'You deleted chat room!', 
+							type: 'danger', 
+							time: action.time
+						}
+					]
+				}
 			} 
 
 		case CHANGE_ROOM:
 			return {...state, selectedRoom: action.data}
+
+		case DELETE_NOTIFICATOR:
+			const newNotiMessages = state.notificator.messages
+				.filter(message => message.time !== action.data);
+			return {
+				...state, 
+				notificator: {
+					time: '',
+					messages: [...newNotiMessages]
+				}
+			}
+
+		case ADD_NOTIFICATOR:
+			return {
+				...state,
+				notificator: {
+					time: action.data.time,
+					messages: [
+						...state.notificator.messages,
+						{
+							text: action.data.text,
+							type: action.data.type,
+							time: action.data.time
+						}
+					]
+				}
+			}
 
 		default: return state;
 	}

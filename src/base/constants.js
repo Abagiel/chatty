@@ -1,5 +1,7 @@
 import React from 'react';
 
+export const timeTillRemove = 5000;
+
 export const timeOptions = {
 		year: 'numeric',
 		month: 'numeric',

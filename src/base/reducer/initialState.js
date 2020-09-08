@@ -25,7 +25,12 @@ const defaultState = {
       private: true
     } 
   },
-  'users': {}
+  'users': {}, 
+  'notificator': {
+    'text': '', 
+    'type': '',
+    'messages': []
+  }
 };
 
 function normalize(state) {
@@ -34,7 +39,14 @@ function normalize(state) {
     ...state, 
     selectedRoom: null,
     currentUser: currentUserDefault,
-    sessionId: Date.now() }
+    sessionId: Date.now(),
+    notificator: {
+      text: '',
+      type: '',
+      time: '',
+      messages: []
+    } 
+  }
 }
 
 export function normalizeInitialState(state) {

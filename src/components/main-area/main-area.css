@@ -1,6 +1,5 @@
 main {
 	grid-column: 2/3;
-	padding: 3rem;
 
 	background: hsl(140 50% 50%);
 } 
@@ -30,7 +29,8 @@ main {
 	align-self: flex-start;
 	display: flex;
 	flex-direction: column;
-	height: calc(100vh - 17rem);
+	height: calc(100vh - 133px);
+	padding: 3rem;
 
 	color: #fff;
 	overflow-y: scroll;
@@ -128,7 +128,7 @@ main {
 	align-items: center;
 	display: flex;
 	max-width: 80rem;
-	padding: 1rem 0 0;
+	padding: 2rem 3rem;
 }
 
 .message-input {
