@@ -74,6 +74,20 @@ header {
 	border-radius: 5px;
 }
 
+@media screen and (max-width: 575px) {
+	.header-user__menu {
+		right: 0;
+		width: 100%;
+	}
+
+	.header-user__menu ul {
+		right: 0 !important;
+		z-index: 1;
+
+		width: 100%;
+	}
+}
+
 .header-user__menu > div {
 	position: relative;
 

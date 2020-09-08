@@ -16,6 +16,13 @@ body {
 	overflow: hidden;
 }
 
+@media screen and (max-width: 575px) {
+	body {
+		height: auto;
+		overflow-y: scroll;
+	}
+}
+
 h4 {
 	margin: .5rem 0;
 

@@ -2,14 +2,20 @@ main {
 	grid-column: 2/3;
 
 	background: hsl(140 50% 50%);
-} 
+}
 
+@media screen and (max-width: 575px) {
+	main {
+		height: calc(100vh - 50px);
+	}
+}
 
 .message-backdrop {
 	align-items: center;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	padding: 1rem;
 }
 
 .message-backdrop > svg {
@@ -37,6 +43,14 @@ main {
 	scrollbar-color: hsl(140 50% 40%) hsl(140 50% 50%);
 	scrollbar-width: thin;
 }
+
+@media screen and (max-width: 575px) {
+	.message-board {
+		height: calc(100vh - 130px);
+		padding: 1.6rem;
+	}
+}
+
 .message-board::-webkit-scrollbar {
 	width: .5rem;
 }
@@ -59,6 +73,13 @@ main {
 
 	background: hsl(140 50% 40%);
 	border-radius: 5px;
+}
+
+@media screen and (max-width: 575px) {
+	.message-item {
+		min-width: 50%;
+		max-width: 90%;
+	}
 }
 
 .message-item.you {
@@ -115,6 +136,7 @@ main {
 	position: absolute;
 	bottom: 0;
 	right: .6rem;
+	left: .6rem;
 
 	color: hsl(140 50% 65%);
 	font-weight: 500;
@@ -131,6 +153,13 @@ main {
 	padding: 2rem 3rem;
 }
 
+@media screen and (max-width: 575px) {
+	.message-form {
+		max-width: 100%;
+		padding: 2rem 1.6rem;
+	}
+}
+
 .message-input {
 	flex: 85;
 	height: 4rem;
@@ -139,6 +168,12 @@ main {
 	border: 1px solid hsl(140 50% 40%);
 	border-radius: 10px;
 	font-size: 1.8rem;
+}
+
+@media screen and (max-width: 575px) {
+	.message-input {
+		padding: 0;
+	}
 }
 
 .btn-send {

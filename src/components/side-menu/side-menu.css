@@ -10,6 +10,14 @@ aside {
 	scrollbar-color: hsl(140 50% 50%) hsl(140 50% 40%);
 	scrollbar-width: thin;
 }
+@media screen and (max-width: 575px) {
+	aside {
+		display: none;
+		max-height: 200px;
+		overflow-y: scroll;
+	}
+}
+
 aside::-webkit-scrollbar {
 	width: .5rem;
 }

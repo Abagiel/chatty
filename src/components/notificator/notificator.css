@@ -1,5 +1,5 @@
 .notificator {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	z-index: 10;
@@ -20,11 +20,16 @@
 	color: #fff;
 	font-size: 2rem;
 
-	animation-name: showMessage, hideMessage;
-	animation-duration: 300ms, 300ms;
-	animation-delay: 0ms, 4400ms;
-	animation-iteration-count: 1, 1;
-	animation-fill-mode: forwards, forwards;
+	-webkit-animation-name: showMessage, hideMessage;
+	        animation-name: showMessage, hideMessage;
+	-webkit-animation-duration: 300ms, 300ms;
+	        animation-duration: 300ms, 300ms;
+	-webkit-animation-delay: 0ms, 4400ms;
+	        animation-delay: 0ms, 4400ms;
+	-webkit-animation-iteration-count: 1, 1;
+	        animation-iteration-count: 1, 1;
+	-webkit-animation-fill-mode: forwards, forwards;
+	        animation-fill-mode: forwards, forwards;
 }
 
 .notificator-message.success {
@@ -42,13 +47,31 @@
 	border-color: hsl(60 80% 50%);
 }
 
+@-webkit-keyframes showMessage {
+	100% {
+		transform: translateX(0);
+	}
+}
+
 @keyframes showMessage {
 	100% {
 		transform: translateX(0);
 	}
 }
 
+@-webkit-keyframes hideMessage {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-100%);
+	}
+}
+
 @keyframes hideMessage {
+	0% {
+		transform: translateX(0);
+	}
 	100% {
 		transform: translateX(-100%);
 	}

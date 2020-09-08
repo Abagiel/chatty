@@ -35,7 +35,8 @@ function chatClickHandler(e, email, props) {
 
 	if (props.private && 
 			props.rooms[type].owner.includes('@') && 
-			props.rooms[type].owner !== email) {
+			props.rooms[type].owner !== email &&
+			props.selectedRoom !== type) {
 		createPassInput(e, props.rooms, type, props.changeRoom, props.onAddNotify);
 		return;
 	}
@@ -65,8 +66,8 @@ function createPassInput(e, rooms, type, func, notify) {
 	input.focus();
 }
 
-function mapStateToProps({ currentUser, rooms }) {
-	return {currentUser, rooms}
+function mapStateToProps({ currentUser, rooms, selectedRoom }) {
+	return {currentUser, rooms, selectedRoom}
 }
 
 function mapDispatchToProps(dispatch) {

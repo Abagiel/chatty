@@ -4,3 +4,10 @@
 	display: grid;
 	grid-template-columns: 200px 1fr;
 }
+
+@media screen and (max-width: 575px) {
+	.app-container {
+		display: flex;
+		flex-direction: column;
+	}
+}
