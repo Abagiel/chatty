@@ -4,6 +4,15 @@ main {
 	background: hsl(140 50% 50%);
 }
 
+.room-title {
+	margin: 0;
+	padding: 0;
+
+	color: #fff;
+	font-size: 3rem;
+	text-align: center;
+}
+
 @media screen and (max-width: 575px) {
 	main {
 		height: calc(100vh - 50px);
@@ -35,7 +44,7 @@ main {
 	align-self: flex-start;
 	display: flex;
 	flex-direction: column;
-	height: calc(100vh - 133px);
+	height: calc(100vh - 168px);
 	padding: 3rem;
 
 	color: #fff;
@@ -46,7 +55,7 @@ main {
 
 @media screen and (max-width: 575px) {
 	.message-board {
-		height: calc(100vh - 130px);
+		height: calc(100vh - 165px);
 		padding: 1.6rem;
 	}
 }

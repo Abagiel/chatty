@@ -12,6 +12,7 @@ function MainArea(props) {
 
   return (
     <main>
+    	<p className='room-title'>{props.selectedRoom}</p>
 			{content}	
 		</main>
   )
