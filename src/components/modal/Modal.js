@@ -37,7 +37,8 @@ class Modal extends Component {
     		<Backdrop setView={this.setView} />
       	<div className="modal">
 					<h2>{this.title}</h2>
-					<form 
+					<form
+            onKeyDown={this.keydownHandler} 
             onSubmit={handler} 
             className="modal-form">
 						{this.inputs.map(input => <Input {...input} key={input.type+input.placeholder} />)}
@@ -48,6 +49,14 @@ class Modal extends Component {
 				</div>
 			</React.Fragment>
     )
+  }
+
+  keydownHandler = (e) => {
+    if (e.key === 'Enter' && 
+        e.target.tagName !== 'BUTTON') {
+      e.preventDefault();
+      e.target.nextSibling.focus();
+    }
   }
 
   submitHandlerRegister = (e) => {
