@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/github.io/chatty/static/css/main.5cee073c.chunk.css",
+    "main.js": "/github.io/chatty/static/js/main.3985347a.chunk.js",
+    "main.js.map": "/github.io/chatty/static/js/main.3985347a.chunk.js.map",
+    "runtime-main.js": "/github.io/chatty/static/js/runtime-main.1a868cb7.js",
+    "runtime-main.js.map": "/github.io/chatty/static/js/runtime-main.1a868cb7.js.map",
+    "static/js/2.5d44fcff.chunk.js": "/github.io/chatty/static/js/2.5d44fcff.chunk.js",
+    "static/js/2.5d44fcff.chunk.js.map": "/github.io/chatty/static/js/2.5d44fcff.chunk.js.map",
+    "index.html": "/github.io/chatty/index.html",
+    "precache-manifest.bbf6e2a2d8a2789a89824ea2b7dc71b6.js": "/github.io/chatty/precache-manifest.bbf6e2a2d8a2789a89824ea2b7dc71b6.js",
+    "service-worker.js": "/github.io/chatty/service-worker.js",
+    "static/css/main.5cee073c.chunk.css.map": "/github.io/chatty/static/css/main.5cee073c.chunk.css.map",
+    "static/js/2.5d44fcff.chunk.js.LICENSE.txt": "/github.io/chatty/static/js/2.5d44fcff.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1a868cb7.js",
+    "static/js/2.5d44fcff.chunk.js",
+    "static/css/main.5cee073c.chunk.css",
+    "static/js/main.3985347a.chunk.js"
+  ]
+}
